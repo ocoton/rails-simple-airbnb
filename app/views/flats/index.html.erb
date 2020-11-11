@@ -1,0 +1,32 @@
+<h1>All flats (<%= @flats.length %>)</h1>
+<br>
+<ul>
+  <% @flats.each do |flat| %>
+  <!-- yellow problem with my link to details page yellow -->
+
+<div class="flat-card">
+          <div class="flat-card-image" style="background-image: url('https://images.unsplash.com/photo-1494526585095-c41746248156?w=1200')"></div>
+          <div class="flat-card-content">
+            <div class="flat-card-title">
+              <h4>Light &amp; <%= flat.name %></h4>
+            </div>
+            <p> <%= flat.address %> </p>
+            <div class="flex">
+              <div class="flex">
+                <i class="material-icons mr-2">🧑‍🤝‍🧑</i><span> <%= flat.number_of_guests %></span>
+              </div>
+              <div class="flex ml-3">
+                <i class="material-icons mr-2">💶</i> <%= flat.price_per_night %>
+              </div>
+            </div>
+          </div>
+          <div class="flat-card-actions">
+            <%= link_to flat.name, flat_path(flat) %>
+            <!-- <a class="ml-3 text-warning" href="/flats/3998/edit">Edit</a> -->
+            <!-- <a data-confirm="Are you sure?" class="ml-3 text-danger" rel="nofollow" data-method="delete" href="/flats/3998">Remove</a> -->
+          </div>
+        </div>
+  <% end %>
+</ul>
+
+   <%= link_to "create new flat", new_flat_path %>
